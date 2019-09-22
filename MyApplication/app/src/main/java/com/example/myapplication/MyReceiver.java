@@ -39,11 +39,13 @@ public class MyReceiver extends BroadcastReceiver {
                     content.append(temp.getMessageBody());
                     phoneNumber.append(temp.getOriginatingAddress());
                 }
-                Toast.makeText(context, "发送者号码：" + phoneNumber.toString() + "  短信内容：" + content.toString(), Toast.LENGTH_LONG).show();
-                //Intent intent1 = new Intent(context, MainActivity.class);
-               Intent i =new Intent(CLOSE_ACTION);
-               i.putExtra("name", phoneNumber.toString()+','+content.toString());
-               context.sendBroadcast(i);
+                //Toast.makeText(context, "发送者号码：" + phoneNumber.toString() + "  短信内容：" + content.toString(), Toast.LENGTH_LONG).show();
+                //Intent intent1 = new Intent(context, MainActivity.class);//
+                Intent i =new Intent("CLOSE_ACTION");
+                Bundle bundle1 = new Bundle();
+                bundle1.putString("name", phoneNumber.toString()+','+content.toString());
+                i.putExtras(bundle1);
+                context.sendBroadcast(i);
             }
         }
     }
