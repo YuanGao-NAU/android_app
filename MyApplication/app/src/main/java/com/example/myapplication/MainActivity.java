@@ -5,6 +5,8 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 import android.Manifest;
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.pm.PackageManager;
@@ -20,6 +22,7 @@ public class MainActivity extends AppCompatActivity{
 
     private Switch switch1;
     private IntentFilter intentFilter;
+    private BroadcastReceiver messageReceiver;
 
     private MyReceiver myReceiver;
 
@@ -48,6 +51,13 @@ public class MainActivity extends AppCompatActivity{
                        //intentFilter.addAction("android.provider.Telephony.SMS_RECEIVED");
                        //myReceiver = new MyReceiver();
                        //registerReceiver(myReceiver, intentFilter);
+                       messageReceiver = new BroadcastReceiver(){
+                           @Override
+                           public void onReceive(Context context, Intent intent) {
+                               String value = getIntent().getStringExtra("name");
+                           }
+                       };
+                       registerReceiver(messageReceiver, new IntentFilter(CLOSE_ACTION));
                    }
                }
             }

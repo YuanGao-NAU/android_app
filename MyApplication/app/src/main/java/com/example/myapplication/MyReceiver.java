@@ -41,9 +41,9 @@ public class MyReceiver extends BroadcastReceiver {
                 }
                 Toast.makeText(context, "发送者号码：" + phoneNumber.toString() + "  短信内容：" + content.toString(), Toast.LENGTH_LONG).show();
                 //Intent intent1 = new Intent(context, MainActivity.class);
-                Intent intent1 = new Intent();
-                intent1.putExtra("sms", phoneNumber.toString()+','+content.toString());
-                
+               Intent i =new Intent(CLOSE_ACTION);
+               i.putExtra("name", phoneNumber.toString()+','+content.toString());
+               context.sendBroadcast(i);
             }
         }
     }
