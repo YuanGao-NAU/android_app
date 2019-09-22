@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.myapplication">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.RECEIVE_SMS" />
     <uses-permission android:name="android.permission.READ_SMS" />
     <uses-permission android:name="android.permission.CALL_PHONE" />
@@ -13,13 +14,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
         <receiver
             android:name=".MyReceiver"
             android:enabled="true"
             android:exported="true">
-            <intent-filter android:priority="1000"> <!--优先级：-1000~1000，系统短信优先级为-1-->
-                <!--订阅广播事件类型-->
-                <action android:name="android.provider.Telephony.SMS_RECEIVED"/>
+            <intent-filter android:priority="1000"> <!-- 优先级：-1000~1000，系统短信优先级为-1 -->
+                <!-- 订阅广播事件类型 -->
+                <action android:name="android.provider.Telephony.SMS_RECEIVED" />
             </intent-filter>
         </receiver>
 
@@ -30,7 +32,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
     </application>
 
 </manifest>
