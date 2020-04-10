@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity{
         @Override
         public void run(){
             try {
-                this.socket = new Socket("134.114.181.162", 10000);
+                this.socket = new Socket("127.0.0.1", 10000);       //change to you own server IP address
                 this.socket.setSoTimeout(10000);
                 OutputStream os = this.socket.getOutputStream();
                 BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(os, "utf-8"));
