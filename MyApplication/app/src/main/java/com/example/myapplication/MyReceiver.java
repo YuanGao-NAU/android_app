@@ -12,7 +12,6 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import static android.app.Activity.RESULT_OK;
 
 public class MyReceiver extends BroadcastReceiver {
     private static final String SMS_RECEIVED_ACTION = "android.provider.Telephony.SMS_RECEIVED";
@@ -43,15 +42,11 @@ public class MyReceiver extends BroadcastReceiver {
                 //Intent intent1 = new Intent(context, MainActivity.class);//
                 Intent i =new Intent("CLOSE_ACTION");
                 Bundle bundle1 = new Bundle();
-                bundle1.putString("name", phoneNumber.toString()+','+content.toString());
+                bundle1.putString("name", phoneNumber.toString()+", "+content.toString());
                 i.putExtras(bundle1);
                 context.sendBroadcast(i);
             }
         }
-    }
-
-    public void sendToServer(String content){
-
     }
 
     public String smsToString(Context context, String sendid, String content){

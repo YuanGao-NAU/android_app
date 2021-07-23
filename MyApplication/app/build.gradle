@@ -27,4 +27,6 @@ dependencies {
     androidTestImplementation 'androidx.test:runner:1.2.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
     implementation 'com.google.code.gson:gson:2.7'
+    implementation 'com.sun.mail:android-activation:1.6.0'
+    implementation 'com.sun.mail:android-mail:1.6.0'
 }

@@ -10,7 +10,7 @@
         android:id="@+id/switch1"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="监听短信"
+        android:text="Listen SMS"
         tools:layout_editor_absoluteX="0dp"
         tools:layout_editor_absoluteY="0dp" />
 
